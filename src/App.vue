@@ -7,12 +7,30 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import gql from 'graphql-tag'
 
 export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  data(){
+      return {
+        id: null,
+        firstName: '',
+        lastName: '',
+        email: ''}
+  },
+  apollo: {
+        contacts: gql`query {
+          contacts {
+            id,
+            firstName,
+            lastName,
+            email
+          }
+        }`,
+  },
 }
 </script>
 
